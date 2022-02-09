@@ -13,5 +13,5 @@ class TVShow(models.Model):
     image = models.ImageField(upload_to='')
     quantity = models.IntegerField()
     genre = models.CharField(choices=GENRE_CHOICE,max_length=100)
-    data_filmed = models.DateField()
+    data_filmed = models.DateField(auto_now_add=True)
 
