@@ -5,7 +5,7 @@ from . import models, forms
 from django.views import generic
 
 
-class ShowsListView(generic.ListView):
+class KnigaListView(generic.ListView):
     template_name = "show_list.html"
     queryset = models.TVShow.objects.all()
 
@@ -17,7 +17,7 @@ class ShowsListView(generic.ListView):
 # shows = models.TVShow.objects.all()
 # return render(request, 'shows_list.html', {'shows': shows})
 
-class ShowsDetailView(generic.DetailView):
+class KnigaDetailView(generic.DetailView):
     template_name = "shows_detail.html"
 
     def get_object(self, **kwargs):
@@ -29,7 +29,7 @@ class ShowsDetailView(generic.DetailView):
 # show = get_object_or_404(models.TVShow, id=id)
 # return render(request, 'shows_detail.html', {'show': show})
 
-class ShowsCreateView(generic.CreateView):
+class KnigaCreateView(generic.CreateView):
     template_name = "add_shows.html"
     form_class =  forms.ShowForm
     queryset =  models.TVShow.objects.all()
@@ -37,7 +37,7 @@ class ShowsCreateView(generic.CreateView):
 
     def form_valid(self, form):
         print(form.cleaned_data)
-        return  super(ShowsCreateView, self).form_valid(form=form)
+        return  super(KnigaCreateView, self).form_valid(form=form)
 
 #def add_show(request):
     # method = request.method
@@ -50,7 +50,7 @@ class ShowsCreateView(generic.CreateView):
     #     form = forms.ShowForm()
     # return render(request, 'add_shows.html', {'form': form})
 
-class ShowsUpdateView(generic.UpdateView):
+class KnigaUpdateView(generic.UpdateView):
     template_name = "show_update.html"
     form_class =  forms.ShowForm
     success_url =  "/shows/"
@@ -60,7 +60,7 @@ class ShowsUpdateView(generic.UpdateView):
         return  get_object_or_404(models.TVShow,id=shows_id)
 
     def form_valid(self, form):
-        return  super(ShowsUpdateView, self).form_valid(form=form)
+        return  super(KnigaUpdateView, self).form_valid(form=form)
 #def show_update(request, id):
     # show_object = get_object_or_404(models.TVShow, id=id)
     # if request.method == 'POST':
@@ -74,7 +74,7 @@ class ShowsUpdateView(generic.UpdateView):
     #     form = forms.ShowForm(instance=show_object)
     # return render(request, 'add_shows.html', {'form': form, 'object': show_object})
 
-class ShowsDeleteView(generic.DeleteView):
+class KnigaDeleteView(generic.DeleteView):
     template_name = "confirm_delete_show.html"
     success_url = "/shows/"
 

@@ -19,7 +19,7 @@ class TVShow(models.Model):
         return self.title
 
 
-class ShowComment(models.Model):
+class KnigaComment(models.Model):
     shows = models.ForeignKey(TVShow, on_delete= models.CASCADE,
                               related_name="show_comment")
     text = models.TextField()
