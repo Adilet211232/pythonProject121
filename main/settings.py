@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kniga',
     'shows',
+    'parser_app',
 ]
 
 MIDDLEWARE = [
